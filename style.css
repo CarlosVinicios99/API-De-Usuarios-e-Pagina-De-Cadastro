@@ -1,10 +1,42 @@
-.box{
-    display: flex;
+*{
+    margin: 0;
+    padding: 0;
+   
+    border: 0px;
 }
 
-.cadastro{
+body{
+    background-color: hsla(115, 79%, 37%, 0.897);
+}
+
+h1{
+    margin: 40px 0px 0px 0px;
+    color: white;
+    font-size: 35px;
+}
+
+.box, .cadastro {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 35px;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    height: 30px;
+    width: 120px;
+    font-size: 16px;
+    border-radius: 20px;
 }
