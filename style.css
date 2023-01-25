@@ -1,12 +1,10 @@
 *{
-    margin: 0;
-    padding: 0;
-   
-    border: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 body{
-    background-color: hsla(115, 79%, 37%, 0.897);
+    background-color: hsl(114, 63%, 38%);
 }
 
 h1{
@@ -15,7 +13,7 @@ h1{
     font-size: 35px;
 }
 
-.box, .cadastro {
+.box, form {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -23,18 +21,22 @@ h1{
 }
 
 input{
+    outline: none;
+    border: 0px;
     width: 300px;
     height: 40px;
     border-radius: 20px;
-    padding-left: 10px;
+    padding-left: 15px;
     font-size: 16px;
 }
 
 input:focus{
-    outline: none;
+    border: 2px solid;
+    border-color: rgb(105, 255, 60);
 }
 
 button{
+    border: 0px;
     height: 30px;
     width: 120px;
     font-size: 16px;
