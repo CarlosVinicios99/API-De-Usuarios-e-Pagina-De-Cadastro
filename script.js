@@ -39,5 +39,5 @@ formulario.addEventListener("submit", function(event) {
     }
     cadastrar(usuario)
     limparFormulario()
-
+    
 })
