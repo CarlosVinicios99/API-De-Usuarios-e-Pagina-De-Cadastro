@@ -6,7 +6,7 @@ const senha = document.querySelector(".senha")
 const telefone = document.querySelector(".telefone")
 
 function cadastrar(usuario){
-    fetch("http://localhost:8080/cadastrar", {
+    fetch("http://localhost:8080/usuarios", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -23,19 +23,19 @@ function cadastrar(usuario){
 }
 
 function limparFormulario(){
-    nome = ""
-    email = ""
-    senha = ""
-    telefone = ""
+    nome.value = ""
+    email.value = ""
+    senha.value = ""
+    telefone.value = ""
 }
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault()
     const usuario = {
-        nome,
-        email,
-        senha,
-        telefone
+        nome: nome.value,
+        email: email.value,
+        senha: senha.value,
+        telefone: telefone.value
     }
     cadastrar(usuario)
     limparFormulario()
