@@ -22,5 +22,14 @@ public class UsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 	
+	public Usuario alterarUsuario(Usuario usuario) {
+		return usuarioRepository.save(usuario);
+	}
+	
+	public Boolean excluirUsuario(Long id) {
+		usuarioRepository.deleteById(id);
+		return true;
+	}
+	
 	
 }

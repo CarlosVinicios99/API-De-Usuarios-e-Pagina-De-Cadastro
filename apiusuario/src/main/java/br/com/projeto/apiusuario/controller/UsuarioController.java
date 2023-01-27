@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projeto.apiusuario.model.Usuario;
-import br.com.projeto.apiusuario.repository.UsuarioRepository;
 import br.com.projeto.apiusuario.service.UsuarioService;
 
 @RestController
@@ -38,13 +37,13 @@ public class UsuarioController{
 	
 	@PutMapping
 	public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario) {
-		Usuario novoUsuario = usuarioService.save(usuario);
+		Usuario novoUsuario = usuarioService.alterarUsuario(usuario);
 		return ResponseEntity.status(201).body(novoUsuario);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> excluirUsuario(@PathVariable Long id) {
-		usuarioService.deleteById(id);
+		usuarioService.excluirUsuario(id);
 		return ResponseEntity.status(204).build();
 	}
 	
