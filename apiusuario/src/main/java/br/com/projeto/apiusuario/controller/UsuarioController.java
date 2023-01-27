@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,27 +27,27 @@ public class UsuarioController{
 	private UsuarioRepository usuarioRepository;
 	
 	@GetMapping
-	public List<Usuario> obterUsuarios() {
-		return (List<Usuario>) usuarioRepository.findAll();
+	public ResponseEntity<List<Usuario>> obterUsuarios() {
+		List<Usuario> usuarios = (List<Usuario>) usuarioRepository.findAll();
+		return ResponseEntity.status(200).body(usuarios);
 	}
 	
 	@PostMapping
-	public Usuario cadastrarUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
 		Usuario novoUsuario = usuarioRepository.save(usuario);
-		return novoUsuario;
+		return ResponseEntity.status(201).body(novoUsuario);
 	}
 	
 	@PutMapping
-	public Usuario alterarUsuario(@RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario) {
 		Usuario novoUsuario = usuarioRepository.save(usuario);
-		return novoUsuario;
+		return ResponseEntity.status(201).body(novoUsuario);
 	}
 	
 	@DeleteMapping("/{id}")
-	public Optional<Usuario> excluirUsuario(@PathVariable Long id) {
-		Optional<Usuario> usuario = usuarioRepository.findById(id);
+	public ResponseEntity<?> excluirUsuario(@PathVariable Long id) {
 		usuarioRepository.deleteById(id);
-		return usuario;
+		return ResponseEntity.status(204).build();
 	}
 	
 	
