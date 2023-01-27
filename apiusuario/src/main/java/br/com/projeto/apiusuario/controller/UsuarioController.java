@@ -1,7 +1,6 @@
 package br.com.projeto.apiusuario.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projeto.apiusuario.model.Usuario;
 import br.com.projeto.apiusuario.repository.UsuarioRepository;
+import br.com.projeto.apiusuario.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -24,29 +24,27 @@ import br.com.projeto.apiusuario.repository.UsuarioRepository;
 public class UsuarioController{
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioService usuarioService;
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> obterUsuarios() {
-		List<Usuario> usuarios = (List<Usuario>) usuarioRepository.findAll();
-		return ResponseEntity.status(200).body(usuarios);
+		return ResponseEntity.status(200).body(usuarioService.obterUsuarios());
 	}
 	
 	@PostMapping
 	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
-		Usuario novoUsuario = usuarioRepository.save(usuario);
-		return ResponseEntity.status(201).body(novoUsuario);
+		return ResponseEntity.status(201).body(usuarioService.cadastrarUsuario(usuario));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Usuario> alterarUsuario(@RequestBody Usuario usuario) {
-		Usuario novoUsuario = usuarioRepository.save(usuario);
+		Usuario novoUsuario = usuarioService.save(usuario);
 		return ResponseEntity.status(201).body(novoUsuario);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> excluirUsuario(@PathVariable Long id) {
-		usuarioRepository.deleteById(id);
+		usuarioService.deleteById(id);
 		return ResponseEntity.status(204).build();
 	}
 	
