@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: hsl(114, 63%, 38%);
+}
+
+h1{
+    margin: 40px 0px 0px 0px;
+    color: white;
+    font-family: ubuntu;
+    font-size: 35px;
+}
+
+.box, form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 35px;
+}
+
+input{
+    outline: none;
+    border: 0px;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+input:focus{
+    border: 2px solid;
+    border-color: rgb(105, 255, 60);
+}
+
+button{
+    border: 0px;
+    height: 30px;
+    width: 140px;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+button:hover{
+    border: 2px solid;
+    border-color: rgb(105, 255, 60);
+    background-color: rgb(202, 202, 202);
+}
